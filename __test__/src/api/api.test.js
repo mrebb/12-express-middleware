@@ -24,10 +24,10 @@ describe('Simple Web Server', () => {
 
     const dataDirectory = `${__dirname}/../../../src/lib/storage/data`;
     fs.readdir(dataDirectory, (err, files) => {
-      if (err) throw err;
+      if (err) return;
       for (const file of files) {
         fs.unlink(path.join(dataDirectory, file), err => {
-          if (err) throw err;
+          if (err) return;
         });
       }
     });
